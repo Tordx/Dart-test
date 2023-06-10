@@ -1,27 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:testing/home_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _NameState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _NameState extends State<ProfilePage> {
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (BuildContext context){
-              return const HomePage();
-            },
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              
+              child: GestureDetector(
+                onTap: () {
+                  // Handle your image tap here
+                },
+                child: Image.asset(
+                  'images/default.PNG',
+                ),
+              ),
             ),
-          );
-        },
-        child: const Text('Profile'),
+          ),
+        ],
       ),
     );
   }
