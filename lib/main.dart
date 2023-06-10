@@ -39,11 +39,10 @@ class _RootPage extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('New App'),
-      ),
+    
       body: _children[currentPage],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.lightBlue,
         items: const [
           BottomNavigationBarItem(
             icon:  Icon(Icons.newspaper_outlined),
@@ -55,6 +54,7 @@ class _RootPage extends State<RootPage> {
           ),
           BottomNavigationBarItem(
             icon:  Icon(Icons.history),
+            
             label: 'History',
           ),
           BottomNavigationBarItem(
@@ -62,9 +62,9 @@ class _RootPage extends State<RootPage> {
             label: 'Profile',
           ),
         ],
-        currentIndex: 0,
+        currentIndex: currentPage,
           onTap: (int index){setState((){currentPage = index;});},
-          fixedColor: Colors.yellowAccent,
+          fixedColor: Colors.white, // Change the active item color here
           type: BottomNavigationBarType.fixed,
       ),
     );
